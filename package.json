@@ -9,7 +9,7 @@
     "npm": "10.2.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "author": "",
   "license": "ISC",
