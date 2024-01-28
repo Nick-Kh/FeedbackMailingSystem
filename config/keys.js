@@ -1,12 +1,9 @@
-import devKeys from './dev.js';
-import prodKeys from './prod.js';
-
 let config = null;
 
 if(process.env.NODE_ENV === 'production') {
-  config = prodKeys;
+  config = await import('./prod.js');;
 } else {
-  config = devKeys;
+  config = await import('./dev.js');
 }
 
-export default config;
+export default config.default;
