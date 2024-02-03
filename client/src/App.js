@@ -1,13 +1,19 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Landing from './components/Landing/Landing';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as actions from './store/actions'; 
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>Survey New</h2>;
-const Landing = () => <h2>Landing</h2>;
 
-function App() {
+const App = ({ fetchUser }) => {
+  useEffect(() => {
+    fetchUser();
+  }, [])
   return (
-    <div className="App">
+    <div className="container">
       <BrowserRouter>
         <Header />
         <Route exact path="/" component={Landing} />
@@ -18,4 +24,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default connect(null, actions)(App);
